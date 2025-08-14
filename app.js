@@ -160,3 +160,42 @@ function Question3(person){
 Question3(borrower1)
 Question3(borrower2)
 Question3(borrower3)
+
+
+let delivery = {
+    orderValue : 6000,
+    isSameCity : false,
+    isPriority : true,
+    isSameState:true
+}
+
+
+if(delivery.isSameCity){
+    if(delivery.isPriority){
+        if(delivery.orderValue>2000){
+            console.log("Delivery free.")
+        }
+        else{
+        console.log("delivery charges are 50rs.")
+    }
+    }
+    
+}
+else if(!delivery.isSameCity){
+    if(delivery.isSameState){
+        if(delivery.orderValue>5000){
+            console.log("Deliver free.")
+        }
+        else{
+            console.log("delivery charge 100rs")
+        }
+    }
+    else if(!delivery.isSameState){
+        if(delivery.isPremium && delivery.isWeekend){
+            console.log("delvery charges are 200 - 100 = 100rs")
+        }
+        else{
+            console.log("delivery charges are 200rs")
+        }
+    }
+}
