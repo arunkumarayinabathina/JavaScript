@@ -65,3 +65,53 @@ checkOne(normalPerson);
 // else{
 //     console.log("Need to pay full price");
 // }
+
+
+// let customer = {
+//     orderAmount:300,
+//     isPremium:true,
+//     isWeekday:true,
+//     time:11,
+//     isCouponUsed:false,
+//     isSunday:true
+// }
+
+let person1 = {
+    orderAmount:1200,
+    isPremium:true
+}
+let person2 = {
+    orderAmount:600,
+    isWeekday:true,
+    time:19,
+    isCouponUsed:false
+}
+let person3 = {
+    orderAmount : 200,
+    isSunday:true,
+    time:11,
+}
+let person4 = {
+    orderAmount:100,
+    isSunday:false
+}
+
+function Question2(customer){
+    if(customer.orderAmount>1000 && customer.isPremium){
+        console.log("Eligible for free delivery and 15% discount");
+    }
+    else if((customer.orderAmount>500 && customer.orderAmount<1000) && customer.isWeekday && (customer.time>18 && customer.time<20)){
+        console.log("Eligible for 100 discount");
+    }
+    else if(customer.orderAmount<500 && customer.isSunday && (customer.time<12 && customer.time>0)){
+        console.log("Eligible for free delivery");
+    }
+    else{
+        console.log("Need to pay full amount including delivery");
+    }
+}
+
+Question2(person1)
+Question2(person2)
+Question2(person3)
+Question2(person4)
