@@ -163,7 +163,7 @@ Question3(borrower3)
 
 
 let delivery = {
-    orderValue : 6000,
+    orderValue : 4000,
     isSameCity : false,
     isPriority : true,
     isSameState:true
@@ -196,6 +196,33 @@ else if(!delivery.isSameCity){
         }
         else{
             console.log("delivery charges are 200rs")
+        }
+    }
+}
+
+
+let gymTrainee = {
+    memberShipType : "Gold", // "Silver" , "Bronze"
+    attendedDays : 21,
+    paymentType:"UPI"
+}
+
+if(gymTrainee.paymentType == "UPI"){
+    if(gymTrainee.memberShipType == "Gold"){
+    if(gymTrainee.attendedDays>20){
+        console.log("you need to pay total amount - 500");
+    }
+    else if(gymTrainee.memberShipType == "Silver"){
+        if(gymTrainee.attendedDays>15){
+            console.log("you need to pay total amount - 300");
+        }
+        }
+    }
+}
+else if(gymTrainee.paymentType == "debitCard"){
+    if(gymTrainee.memberShipType == "Bronze"){
+        if(gymTrainee.attendedDays>10){
+            console.log("you need to pay total amount - 300")
         }
     }
 }
