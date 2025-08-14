@@ -115,3 +115,48 @@ Question2(person1)
 Question2(person2)
 Question2(person3)
 Question2(person4)
+
+
+let borrower1 = {
+    loanAmount : 1200000,
+    creditScore : 810
+}
+let borrower2 = {
+    creditScore : 700,
+    income : 50001,
+    isGovtEmployee : true
+}
+let borrower3 = {
+    isGovtEmployee:false,
+    isDecember:true,
+}
+
+function Question3(person){
+    if(person.loanAmount>1000000){
+        if(person.creditScore>800){ 
+            if(person.isGovtEmployee){
+                console.log("Interest rate in 7% and add on discout of 0.5 added so it beacme 6.5%.");
+            }
+            else{
+                console.log("Interest rate in 7%");
+            }
+        }
+    }
+    else if((person.creditScore>650 && person.creditScore<800)){
+            if(person.income>50000){
+                if(person.isGovtEmployee){
+                     console.log("Interest rate in 9% and add on discout of 0.5 added so it beacme 8.5%.");
+                }
+                else{
+                    console.log("Interest rate in 9%");
+                }
+            }
+        }
+        else if(person.isDecember){
+            console.log("On base rate festive discount of 1% is reduced.")
+        }
+    }
+
+Question3(borrower1)
+Question3(borrower2)
+Question3(borrower3)
