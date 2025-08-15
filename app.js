@@ -226,3 +226,38 @@ else if(gymTrainee.paymentType == "debitCard"){
         }
     }
 }
+
+let cupSize = "small"
+let addon = "extrashots"
+let total = 0;
+switch(cupSize){
+    case "small":
+        total += 30;
+        break;
+    case "medium":
+        total += 50;
+        break;
+    case "large":
+        total += 80;
+        break;
+    case "extralarge":
+        total += 100;
+        break;
+    default:
+        console.log("Invalid cup size");
+    }
+switch(addon){
+    case "extrashots":
+        total+=20;
+        break;
+    case "flavouredsyrup":
+        total+=40;
+        break;
+    case "whippedcream":
+        total+=60;
+        break;
+    default:
+        console.log("Ivalid addon");
+}
+
+console.log(total)
