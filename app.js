@@ -468,3 +468,30 @@ if(monthOfJoin == "December"){
 
 console.log(bonus)
 
+
+
+let temp = 5;
+let weatherCategory = ""
+let isRainy=true
+if(temp>=40){
+    weatherCategory+="Extremely Hot"
+}
+else if(temp>=30 && temp <40){
+    weatherCategory+="Hot"
+}
+else if(temp>=20 && temp <30){
+    weatherCategory+="Warm"
+}
+else if(temp>=10 && temp<20){
+    weatherCategory+="Cool"
+}
+else{
+    weatherCategory+="Cold"
+}
+
+if(isRainy){
+    weatherCategory+=" and Rainy";
+}
+
+console.log(weatherCategory)
+
