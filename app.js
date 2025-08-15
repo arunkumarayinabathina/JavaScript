@@ -441,3 +441,30 @@ else if(score<50){
 }
 
 (grade!="")?console.log(grade):"";
+
+
+
+let experience = 11
+let bonus = 0;
+let monthOfJoin = "December"
+if(experience>15){
+    bonus += 50000;
+}
+else if(experience>=10 && experience<=15){
+    bonus+=30000;
+}
+else if(experience>=5 && experience<10){
+    bonus+=20000;
+}
+else if(experience>=2 && experience<5){
+    bonus+=10000;
+}
+else if(experience<2){
+    bonus+=5000
+}
+if(monthOfJoin == "December"){
+    bonus+=2000
+}
+
+console.log(bonus)
+
