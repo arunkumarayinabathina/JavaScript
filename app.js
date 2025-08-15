@@ -526,3 +526,25 @@ if(isBirtday && discount>0){
 }
 
 (discount>0)?console.log(discount):""
+
+
+let completionTime = 2
+let category = ""
+let age = 19
+if(completionTime<2){
+    category+="Elite"
+}
+else if(completionTime>=2 && completionTime<3){
+    category+="Advanced";
+}
+else if(completionTime>=3 && completionTime<4){
+    category+="Intermediate"
+}
+else if(completionTime>=4 && completionTime<=5){
+    category+="Begineer"
+}
+else{
+    category+="Novice";
+}
+
+age<18?console.log(`${category} Youth`):console.log(category)
