@@ -261,3 +261,28 @@ switch(addon){
 }
 
 console.log(total)
+
+
+let recharge = "DataPack"
+let validityTime = 0;
+let specialWeek = true;
+switch(recharge){
+    case "DataPack":
+        validityTime+=10;
+        break;
+    case "TalkTime":
+        validityTime+=20;
+        break;
+    case "ComboPack":
+        validityTime+=30;
+        break;
+    case "UnlimitedPack":
+        validityTime+=40;
+        break;
+    default:
+        console.log("No pack exist")
+}
+if(specialWeek){
+    validityTime+=2;
+}
+console.log(validityTime)
