@@ -350,3 +350,38 @@ switch(order){
 }
 
 console.log(`Total items : ${items} \nTotal bill ${bill}`)
+
+
+
+let bookType = "Fiction" 
+let fine = 0;
+let overDueDays = 5;
+let isStudent = true;
+let studentDiscountPercent = 50;
+switch(bookType){
+    case "Fiction":
+        fine = overDueDays*10
+        if(isStudent){
+            fine = fine *(1-(50/100))
+        }
+        break;
+    case "Non-Fiction":
+        fine = overDueDays*20
+        if(isStudent){
+            fine = fine *(1-(50/100))
+        }
+        break;
+    case "Reference":
+        fine = overDueDays*30
+        if(isStudent){
+            fine = fine *(1-(50/100))
+        }
+        break;
+    case "Magazine":
+        fine = overDueDays*40
+        if(isStudent){
+            fine = fine *(1-(50/100))
+        }
+        break;
+}
+console.log(fine)
