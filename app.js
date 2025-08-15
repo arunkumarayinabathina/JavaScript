@@ -495,3 +495,28 @@ if(isRainy){
 
 console.log(weatherCategory)
 
+
+let cost = 900;
+let isBirtday = true;
+let discount = 0;
+if(cost>20000){
+    discount += 25;
+}
+else if(cost>=15000 && cost<20000){
+     discount+=20
+}
+else if(cost>=10000 && cost<15000){
+     discount+=15
+}
+else if(cost>=5000 && cost<10000){
+     discount+=10
+}
+else{
+     console.log("no discount applicable");
+}
+
+if(isBirtday && discount>0){
+    discount+=5;
+}
+
+(discount>0)?console.log(discount):""
