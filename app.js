@@ -414,8 +414,9 @@ console.log(price)
 
 
 
-let score = 90
+let score = 47
 let grade = ""
+let isFinalYear = false
 if(score>=90 && score<=100){
     grade="A"
 }
@@ -433,7 +434,12 @@ else if(score>=50 && score<60){
 }
 else if(score<50){
     if(score>45){
-        console.log("Eligible for re-evalution")
+        if(isFinalYear){
+            console.log("Eligible for re-evalution")
+        }
+        else{
+            grade+="Fail"
+        }
     }
     else{
         grade = "Fail"
