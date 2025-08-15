@@ -286,3 +286,67 @@ if(specialWeek){
     validityTime+=2;
 }
 console.log(validityTime)
+
+
+let order = "breakfast"
+let item = "dosa"
+let items = 0
+let bill = 0
+
+switch(order){
+    case "breakfast":
+        switch(item){
+            case "dosa":
+                items+=1
+                bill+=60
+                break;
+            case "idly":
+                items+=1
+                bill+=40
+                break;
+            case "paratha":
+                items+=1
+                bill+=80
+                break;
+            default:
+                console.log("Invalid Item");
+        }
+        break;
+    case "lunch":
+        switch(item){
+            case "rice":
+                items += 1;
+                bill += 100;
+                break;
+            case "chapati":
+                items += 1;
+                bill += 80;
+                break;
+            case "biryani":
+                items += 1;
+                bill += 150;
+                break;
+            default:
+                console.log("Invalid Item");
+        }
+        break;
+
+    case "dinner":
+        switch(item){
+            case "friedRice":
+                items += 1;
+                bill += 120;
+                break;
+            case "noodles":
+                items += 1;
+                bill += 110;
+                break;
+            default:
+                console.log("Invalid Item");
+            }
+        break;
+    default:
+        console.log("Invalid order")
+}
+
+console.log(`Total items : ${items} \nTotal bill ${bill}`)
