@@ -385,3 +385,29 @@ switch(bookType){
         break;
 }
 console.log(fine)
+
+
+
+let movieticket = "Standard"
+let Day = "Saturday"
+let price = 0
+switch(movieticket){
+    case "Balcony":
+        price += 50;
+        break;
+    case "Standard":
+        price+=100;
+        break;
+    case "Premium":
+        price+=150
+        break;
+    case "VIP":
+        price+=200;
+        break;
+    default:
+        console.log("No such category exist.")
+}
+if(Day==("Sunday" || "Saturday")){
+    price = price*(1-(20/100));
+}
+console.log(price)
