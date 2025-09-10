@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #121212;
+  color: #fff;
+}
+
+/* 📦 Container */
+.formContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+/* 📝 Form Card */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 380px;
+  padding: 25px 30px; /* more padding on sides */
+  border-radius: 18px;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* 🔹 Title */
+.title {
+  font-size: 26px;
+  font-weight: 600;
+  color: #00bfff;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 5px;
+}
+
+.title::before,
+.title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #00bfff;
+}
+
+.title::after {
+  animation: pulse 1s linear infinite;
+}
+
+/* ✨ Messages */
+.message {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.signin {
+  font-size: 14px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.signin a {
+  color: #00bfff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.signin a:hover {
+  text-decoration: underline;
+}
+
+/* 📥 Input Fields */
+.form label {
+  position: relative;
+  display: block;
+}
+
+.input {
+  width: 100%;
+  padding: 18px 12px 6px; /* fixed padding */
+  font-size: 15px;
+  color: #fff;
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+  border-radius: 10px;
+  outline: none;
+  transition: border 0.3s ease, background 0.3s ease;
+}
+
+.input:focus {
+  border-color: #00bfff;
+  background-color: #222;
+}
+
+.form label span {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  font-size: 0.9em;
+  color: rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* Floating label effect */
+.input:focus + span,
+.input:valid + span {
+  top: 5px;
+  font-size: 0.75em;
+  font-weight: 600;
+  color: #00bfff;
+}
+
+.submit {
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #00bfff;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.submit:hover {
+  background-color: #009acd;
+  transform: translateY(-2px);
+}
+
+.submit:active {
+  transform: translateY(0);
+}
+
+/* 💡 Animation */
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+.error-message {
+  font-size: 13px;
+  color: #ff4d4d;
+  margin-top: 4px;
+}

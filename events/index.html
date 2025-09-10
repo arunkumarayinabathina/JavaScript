@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+
+    <style>
+        .login-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .login-card {
+            padding: 40px;
+            background-color: lightgrey;
+            border-radius: 5px;
+            border: 2px solid #323232;
+            box-shadow: 4px 4px #323232;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 25px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: #323232;
+        }
+
+        .login-input {
+            width: 250px;
+            height: 40px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 2px solid #323232;
+            padding: 5px 10px;
+            font-size: 15px;
+            font-weight: 600;
+            outline: none;
+        }
+
+        .login-input::placeholder {
+            color: #666;
+            opacity: 0.8;
+        }
+
+        .login-input:focus {
+            border: 2px solid #2d8cf0;
+        }
+
+        .login-btn {
+            width: 120px;
+            height: 40px;
+            border-radius: 5px;
+            border: 2px solid #323232;
+            background-color: #fff;
+            box-shadow: 4px 4px #323232;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-wrapper">
+        <div class="login-card">
+            <div class="title">Log in</div>
+            <form class="login-form" action="">
+                <input class="login-input" name="email" placeholder="Email" type="email">
+                <input class="login-input" name="password" placeholder="Password" type="password">
+                <!-- <button class="login-btn" onclick="handleLogin()">Login</button> -->
+                <button class="login-btn" id="LoginBtn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>
