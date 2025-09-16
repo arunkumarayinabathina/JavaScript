@@ -1,5 +1,5 @@
 const products = [
-   {
+    {
         id: 1,
         name: "Wireless Headphones",
         category: "Electronics",
@@ -133,24 +133,62 @@ const products = [
 
 const mainDiv = document.getElementById("main");
 
-        // id: 1,
-        // name: "Wireless Bluetooth Headphones",
-        // category: "Electronics",
-        // brand: "Sony",
-        // actualPrice: 5999,
-        // discountedPrice: 4499,
-        // ratings: [5, 4, 4, 5, 3],
-        // quantity: 120,
-        // description: "Noise-cancelling over-ear headphones with 30 hours battery life.",
-        // inStock: true,
-        // image: "https://picsum.photos/id/1011/400/400"
-const productCard = products.map((product)=>
+// id: 1,
+// name: "Wireless Bluetooth Headphones",
+// category: "Electronics",
+// brand: "Sony",
+// actualPrice: 5999,
+// discountedPrice: 4499,
+// ratings: [5, 4, 4, 5, 3],
+// quantity: 120,
+// description: "Noise-cancelling over-ear headphones with 30 hours battery life.",
+// inStock: true,
+// image: "https://picsum.photos/id/1011/400/400"
+// const averageRatingsofEachProduct = document.getElementById("averageRatingsofEachProduct");
+
+
+
+const categoryNav = document.getElementById('categoryNav');
+const ul = document.createElement('ul');
+
+const uniqueCategories = [];
+
+for(const p of products){
+    if(!uniqueCategories.includes(p.category)){
+        uniqueCategories.push(p.category)
+    }
+}
+
+const navTabs = uniqueCategories.forEach(category => {
+    const li = document.createElement('li');
+    li.innerText = category;
+    ul.appendChild(li);
+}) 
+
+categoryNav.append(ul);
+
+
+
+
+products.forEach(p => {
+    const avg = p.ratings.reduce((a, b) => a + b, 0) / p.ratings.length;
+
+    // const rating = document.createElement('div');
+    // rating.innerHTML = `<p>${p.name} - ${avg.toFixed(1)}</p>`;
+
+    // averageRatingsofEachProduct.append(rating);
+
+    p.avg = avg.toFixed(1);
+});
+
+const productCard = products.map((product) =>
     `
         <div class="card">
             <img src=${product.image} alt=${product.name}/>
             <h1>${product.name}</h1>
             <p>${product.description}</p>
             <p>${product.discountedPrice} - <strike>${product.actualPrice}</strike></p>
+            Average rating - <h5 style="display:inline">${product.avg}</h5>
             <button>Add to cart</button>
         </div>
     `
@@ -160,45 +198,47 @@ mainDiv.innerHTML = productCard;
 
 const submitBtn = document.getElementById('filterBtn');
 
-submitBtn.addEventListener('click',()=>{
+submitBtn.addEventListener('click', () => {
     const startPrice = document.getElementById('start').value;
     const endPrice = document.getElementById('end').value;
 
-    const filteredProducts = products.filter((product)=>product.actualPrice >= startPrice && product.actualPrice<=endPrice);
+    const filteredProducts = products.filter((product) => product.actualPrice >= startPrice && product.actualPrice <= endPrice);
 
-    if(filteredProducts.length==0){
+    if (filteredProducts.length == 0) {
         mainDiv.innerHTML = "No results found"
     }
-    else{
-        const filteredData = filteredProducts.map((product)=>
-        `
+    else {
+        const filteredData = filteredProducts.map((product) =>
+            `
             <div class="card">
             <img src=${product.image} alt=${product.name}/>
             <h1>${product.name}</h1>
             <p>${product.description}</p>
             <p>${product.discountedPrice} - <strike>${product.actualPrice}</strike></p>
+            Average rating - <h5 style="display:inline">${product.avg}</h5>
             <button>Add to cart</button>
             </div>
 
         `
-    ).join(" ")
-     mainDiv.innerHTML = filteredData;
-    }  
+        ).join(" ")
+        mainDiv.innerHTML = filteredData;
+    }
 })
 
 
 const sortBtn = document.getElementById('sort')
 
-sortBtn.addEventListener('click',()=>{
-    const sortedproducts = products.sort((a,b)=>a.discountedPrice - b.discountedPrice);
+sortBtn.addEventListener('click', () => {
+    const sortedproducts = products.sort((a, b) => a.discountedPrice - b.discountedPrice);
 
-    const sortedData = sortedproducts.map((product)=>
+    const sortedData = sortedproducts.map((product) =>
         `
            <div class="card">
             <img src=${product.image} alt=${product.name}/>
             <h1>${product.name}</h1>
             <p>${product.description}</p>
             <p>${product.discountedPrice} - <strike>${product.actualPrice}</strike></p>
+            Average rating - <h5 style="display:inline">${product.avg}</h5>
             <button>Add to cart</button>
             </div>  
         `
@@ -206,7 +246,6 @@ sortBtn.addEventListener('click',()=>{
 
     mainDiv.innerHTML = sortedData
 })
-
 
 
 
