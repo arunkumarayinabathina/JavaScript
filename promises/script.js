@@ -31,15 +31,36 @@ function createPost(post){
 }
 // createPost({title:"Post three",body:"This is post three"}).then(getPosts).catch((err)=>console.log(err));
 
+//Async/Await
+
+// async function init(){
+//     await createPost({title:"Post three",body:"This is post three"})
+//     getPosts();
+// }
+
+// init();
+
+// Async / Await with fetch
+async function fetchPosts() {
+    const res = await fetch(`https://jsonplaceholder.typicode.com/posts`);
+
+    const data = await res.json()
+    console.log(data);
+}
+
+fetchPosts();
+
 //Promise.all
 
-const promise1 = Promise.resolve("Hello world");
-const promise2 = 10;
-const promise3 = new Promise((res,rej)=>
-    setTimeout(res,2000,"Goodbye")
-)
+// const promise1 = Promise.resolve("Hello world");
+// const promise2 = 10;
+// const promise3 = new Promise((res,rej)=>
+//     setTimeout(res,2000,"Goodbye")
+// )
 
-const promise4 = fetch(`https://jsonplaceholder.typicode.com/posts`)
+// const promise4 = fetch(`https://jsonplaceholder.typicode.com/posts`)
 
-const promise5 = fetch(`https://jsonplaceholder.typicode.com/posts`).then(res=>res.json())
-Promise.all([promise1,promise2,promise3,promise4,promise5]).then(values=>console.log(values))
+// const promise5 = fetch(`https://jsonplaceholder.typicode.com/posts`).then(res=>res.json())
+// Promise.all([promise1,promise2,promise3,promise4,promise5]).then(values=>console.log(values))
+
+
