@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Await</title>
+    <style>
+        /* ====== Base Reset & Typography ====== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                Arial, sans-serif;
+            background: #f5f7fa;
+            color: #1e293b;
+            padding: 24px;
+            line-height: 1.5;
+        }
+
+        /* ====== Product Container ====== */
+        .container {
+            display: grid;
+            gap: 24px;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .container2 {
+            display: grid;
+            gap: 24px;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ====== Card ====== */
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        /* ====== Image ====== */
+        .card img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            /* keeps consistent height */
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ====== Content ====== */
+        .card-content {
+            padding: 16px 18px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex: 1;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #475569;
+            flex-grow: 1;
+            /* fills space if needed */
+        }
+
+        .price {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #0ea5a4;
+            margin-top: auto;
+            text-align: right;
+        }
+
+        /* ====== Responsive Tweaks ====== */
+        @media (max-width: 480px) {
+            body {
+                padding: 16px;
+            }
+
+            .container {
+                gap: 16px;
+            }
+
+            .card-content {
+                padding: 14px 16px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+    </div>
+        <h2 style="font-size: large; text-align: center;">Using async and await</h2>
+    <div class="container2">
+
+    </div>
+    <script src="./app.js"></script>
+</body>
+
+</html>
