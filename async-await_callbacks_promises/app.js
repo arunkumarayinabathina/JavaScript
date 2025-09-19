@@ -83,6 +83,68 @@
 
 // order(0, production);
 
+// let stocks = {
+//     Fruits: ["strawberry", "grapes", "banana", "apple"],
+//     liquid: ["water", "ice"],
+//     holder: ["cone", "cup", "stick"],
+//     toppings: ["chocolate", "peanuts"],
+// };
+
+// let is_shop_open = true;
+
+// let order = (time,work)=>{
+
+//     return new Promise( (resolve,reject)=>{
+//         if(is_shop_open){
+//             setTimeout(()=>{
+//                 resolve(work())
+//             },time)
+//         }
+//         else{
+//             reject(console.log("our shop is closed"))
+//         }
+//     } )
+// }
+
+// order(2000,()=>console.log(`${stocks.Fruits[0]} was selected`))
+
+// .then(()=>{
+//     return order(0,()=>console.log(`production has started`))
+// })
+
+// .then(()=>{
+//     return order(2000,()=>console.log(`The fruit was chopped`))
+// })
+
+// .then(()=>{
+//     return order(1000,()=>console.log(`added water and ice`))
+// })
+
+// .then(()=>{
+//     return order(1000,()=>console.log(`started the machine`))
+// })
+
+// .then(()=>{
+//     return order(2000,()=>console.log(`selected the cup`))
+// })
+
+// .then(()=>{
+//     return order(3000,()=>console.log(`${stocks.toppings[0]} was selected as a topping`))
+// })
+
+// .then(()=>{
+//     return order(2000,()=>console.log(`ice cream was served`))
+// })
+
+// .catch(()=>{
+//     console.log(`Customer was left`)
+// })
+
+// .finally(()=>{
+//     console.log(`day ended, shop is closed`)
+// })
+
+
 let stocks = {
     Fruits: ["strawberry", "grapes", "banana", "apple"],
     liquid: ["water", "ice"],
@@ -92,54 +154,44 @@ let stocks = {
 
 let is_shop_open = true;
 
-let order = (time,work)=>{
+// let order = () =>{
+//     return new Promise((res,rej)=>{
+//         if(true){
+//             res()
+//         }
+//         else{
+//             rej()
+//         }
+//     })
+// }
 
-    return new Promise( (resolve,reject)=>{
-        if(is_shop_open){
-            setTimeout(()=>{
-                resolve(work())
-            },time)
-        }
-        else{
-            reject(console.log("our shop is closed"))
-        }
-    } )
+function order(time, work) {
+  return new Promise((resolve, reject) => {
+    if (is_shop_open) {
+      setTimeout(() => {
+        resolve(work());
+      }, time);
+    } else {
+      reject("Shop is closed");
+    }
+  });
 }
 
-order(2000,()=>console.log(`${stocks.Fruits[0]} was selected`))
+async function kitchen() {
+  try {
+    await order(2000, () => console.log(`${stocks.Fruits[0]} was selected`));
+    await order(0,    () => console.log("Production has started"));
+    await order(2000, () => console.log("Fruit chopped"));
+    await order(1000, () => console.log("Added water & ice"));
+    await order(1000, () => console.log("Machine started"));
+    await order(2000, () => console.log("Selected the cup"));
+    await order(3000, () => console.log(`${stocks.toppings[0]} added`));
+    await order(2000, () => console.log("Ice cream served"));
+  } catch (err) {
+    console.log("Customer left:", err);
+  } finally {
+    console.log("Day ended, shop is closed");
+  }
+}
 
-.then(()=>{
-    return order(0,()=>console.log(`production has started`))
-})
-
-.then(()=>{
-    return order(2000,()=>console.log(`The fruit was chopped`))
-})
-
-.then(()=>{
-    return order(1000,()=>console.log(`added water and ice`))
-})
-
-.then(()=>{
-    return order(1000,()=>console.log(`started the machine`))
-})
-
-.then(()=>{
-    return order(2000,()=>console.log(`selected the cup`))
-})
-
-.then(()=>{
-    return order(3000,()=>console.log(`${stocks.toppings[0]} was selected as a topping`))
-})
-
-.then(()=>{
-    return order(2000,()=>console.log(`ice cream was served`))
-})
-
-.catch(()=>{
-    console.log(`Customer was left`)
-})
-
-.finally(()=>{
-    console.log(`day ended, shop is closed`)
-})
+kitchen();
