@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>This Keyword</title>
+  </head>
+  <body>
+    <center>
+      <h1>This Keyword</h1>
+    </center>
+
+    <script>
+      //   let user = {
+      //     name: "Arun",
+      //     age: 22,
+      //   };
+
+      //   function data(name, age) {
+      //     this.name = name;
+      //     this.age = age;
+      //   }
+
+      //   obj1 = new data("Arun", 22);
+      //   obj2 = new data("Kumar", 23);
+
+      //   console.log(obj1, obj2);
+
+      // call,apply,bind
+
+      let printDetails = function (location) {
+        console.log(`${this.firstName} ${this.lastName} from ${location}`);
+      };
+      let driver1 = {
+        firstName: "Arun",
+        lastName: "Kumar",
+      };
+      //   driver1.printDetails();
+      let driver2 = {
+        firstName: "Kiran",
+        lastName: "Kumar",
+      };
+      let driver3 = {
+        firstName: "Ravi",
+        lastName: "Kumar",
+      };
+      //   printDetails.apply(driver1, ["Hyderabad"]);
+
+      let printer = printDetails.bind(driver1, "Hyd");
+      printer();
+    </script>
+  </body>
+</html>

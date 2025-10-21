@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Booking</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fafafa;
+        color: #333;
+        margin: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+        color: #2c3e50;
+      }
+
+      label {
+        margin: 0 10px;
+        font-weight: 500;
+      }
+
+      input[type="text"],
+      input[type="number"] {
+        padding: 6px 10px;
+        margin-left: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        outline: none;
+        transition: border 0.2s;
+      }
+
+      input[type="text"]:focus,
+      input[type="number"]:focus {
+        border-color: #3498db;
+      }
+
+      #cars {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+
+      .car-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 2px solid #ddd;
+        border-radius: 12px;
+        padding: 15px;
+        margin: 10px;
+        width: 150px;
+        cursor: pointer;
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .car-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        border-color: #3498db;
+      }
+
+      .car-card img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 10px;
+      }
+
+      .car-card p {
+        margin: 0;
+        font-weight: 600;
+        color: #2c3e50;
+      }
+
+      #output {
+        margin-top: 25px;
+        font-weight: bold;
+        font-size: 1.1rem;
+        color: #e74c3c;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Car Booking</h1>
+
+    <label>Name: <input type="text" id="name" /></label>
+    <label>Age: <input type="number" id="age" /></label>
+
+    <div id="cars">
+      <div class="car-card">
+        <img src="./assets/suv.jpg" />
+        <p>SUV</p>
+      </div>
+      <div class="car-card">
+        <img src="./assets/mahindra.jpg" />
+        <p>Mahindra</p>
+      </div>
+      <div class="car-card">
+        <img src="./assets/fortuner.jpg" />
+        <p>Fortuner</p>
+      </div>
+    </div>
+
+    <div id="output"></div>
+
+    <script>
+      function bookCar(carName) {
+        const outputDiv = document.getElementById("output");
+        outputDiv.textContent = `${this.name} ${this.age} booked ${carName}`;
+      }
+
+      function getUserData() {
+        let name = document.getElementById("name").value;
+        let age = document.getElementById("age").value;
+        return {
+          name,
+          age,
+        };
+      }
+
+      document.querySelectorAll(".car-card").forEach((card) => {
+        card.addEventListener("click", () => {
+          const user = getUserData();
+          const carName = card.querySelector("p").textContent;
+          // Using call
+          bookCar.call(user, carName);
+
+          // Using apply
+          // bookCar.apply(user, [carName]);
+
+          // Using bind
+          // const boundBooking = bookCar.bind(user, carName);
+          // boundBooking();
+        });
+      });
+    </script>
+  </body>
+</html>
